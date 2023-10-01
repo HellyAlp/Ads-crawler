@@ -3,7 +3,7 @@ import cors from "cors";
 import axios from "axios";
 
 const app = express();
-const port = 5000; 
+const port =  process.env.PORT || 5000; 
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0'; // Ignore SSL certificate errors because of msn.com site
 
 app.use(cors());
