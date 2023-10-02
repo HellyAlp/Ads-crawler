@@ -1,12 +1,11 @@
 import express from "express";
-import axios from "axios";
 import path from "path";
 const app = express();
 const port =  process.env.PORT || 5000; 
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0'; // Ignore SSL certificate errors because of msn.com site
 
 app.use(express.json());
-app.use(express.static(path.join(__dirname, 'client')));
+app.use(express.static('../client'));
  
 app.get('/ads-txt/:domain', async (req, res) => {
     const domain = req.params['domain'];
@@ -25,7 +24,7 @@ app.get('/ads-txt/:domain', async (req, res) => {
   });
 
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'client/public', 'index.html'));
+  res.sendFile('../client/public/index.html'));
 });
 
 
