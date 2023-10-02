@@ -2,7 +2,7 @@ import express from "express";
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 import path from "path";
-import axios from 'axios;
+import axios from 'axios';
  
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
