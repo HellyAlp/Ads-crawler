@@ -1,11 +1,18 @@
 import express from "express";
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
 import path from "path";
+import axios from 'axios;
+ 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
 const app = express();
 const port =  process.env.PORT || 5000; 
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0'; // Ignore SSL certificate errors because of msn.com site
 
 app.use(express.json());
-app.use(express.static('../client'));
+app.use(express.static(path.join(__dirname, '../client')));
  
 app.get('/ads-txt/:domain', async (req, res) => {
     const domain = req.params['domain'];
