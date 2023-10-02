@@ -25,7 +25,7 @@ function Main() {
     setDisplayedDomain(domain);
     try {
       console.log(`${serverBaseUrl}/ads-txt/${domain}`)
-      const response = await axios.get(`${serverBaseUrl}:${PORT}/ads-txt/${domain}`);
+      const response = await axios.get(`${serverBaseUrl}/ads-txt/${domain}`);
       setAdsTxt(response.data);
       setError('');
       setEndTime(performance.now()); 
