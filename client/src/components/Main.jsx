@@ -16,13 +16,15 @@ function Main() {
   const [endTime, setEndTime] = useState(null);
   const [loading, setLoading] = useState(false); 
   const PORT  = process.env.PORT || 5000; 
+  const serverBaseUrl = process.env.REACT_APP_SERVER_URL;
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setStartTime(performance.now()); 
     setLoading(true);
     setDisplayedDomain(domain);
     try {
-      const response = await axios.get(`http://localhost:${PORT}/ads-txt/${domain}`);
+      const response = await axios.get(`${serverBaseUrl}/ads-txt/${domain}`);
       setAdsTxt(response.data);
       setError('');
       setEndTime(performance.now()); 
