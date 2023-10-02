@@ -15,7 +15,7 @@ function Main() {
   const [startTime, setStartTime] = useState(null);
   const [endTime, setEndTime] = useState(null);
   const [loading, setLoading] = useState(false); 
-
+  const PORT  = process.env.PORT || 5000; 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setStartTime(performance.now()); 
